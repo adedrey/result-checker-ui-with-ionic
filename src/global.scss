@@ -1,0 +1,80 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.ng-invalid .ng-touched  ion-label {
+    color: var(--ion-color-danger, red);
+}
+.ng-invalid .ng-touched  ion-input {
+    border: 1px solid red;
+}
+
+
+// .roundedInput.ion-invalid.item-has-focus {
+//     --border-color: var(--ion-color-danger-shade);
+// }
+
+// .roundedInput.ion-valid.item-has-focus {
+//     --border-color: var(--ion-color-success-shade);
+// }
+
+// .roundedInput.ion-invalid.ion-dirty {
+//     --border-color: var(--ion-color-danger-shade);
+// }
+
+// .roundedInput.ion-valid.ion-dirty {
+//     --border-color: var(--ion-color-success-shade);
+// }
+
+@media print {
+    ion-content {
+      max-width: none;
+    }
+    ion-header, .tabbar {
+      display: none !important;
+    }
+  
+    body, .app-root, .split-pane, .ion-page, ion-app, ion-nav {
+      contain: none;
+    }
+    body, ion-nav {
+      overflow: initial;
+    }
+    body {
+      position: static;
+    }
+  
+    .scroll-content, .ion-page.show-page, .ion-page.show-page > ion-content, .app-root, ion-tabs, ion-tab {
+      position: relative;
+      height: auto;
+      contain: none;
+      overflow: visible;
+    }
+  
+    .fixed-content, .scroll-content {
+      margin-top: 0 !important;
+    }
+  }

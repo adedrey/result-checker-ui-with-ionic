@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref = "/admin/assignments"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{assignment?.course_code}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-text>
+          <h4><strong>Question</strong></h4>
+          <p>{{ assignment?.question }}</p>
+          <ion-label><strong>Deadline:</strong> {{ assignment?.submission_date | date }}</ion-label>
+          <br>
+          <ion-label><strong>Staff:</strong> {{ assignment?.staff_no}}</ion-label>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <app-admin-assignment-detail-item *ngIf="assignment" [assignment]="assignment"></app-admin-assignment-detail-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

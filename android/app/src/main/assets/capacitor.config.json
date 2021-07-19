@@ -1,0 +1,12 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "booking",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "android": {
+    "webContentsDebuggingEnabled": true,
+    "allowMixedContent": true
+  },
+  "cordova": {}
+}

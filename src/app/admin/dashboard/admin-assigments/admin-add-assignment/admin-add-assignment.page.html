@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin/assignments"></ion-back-button>
+    </ion-buttons>
+    <ion-title>AFIT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="credentials">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Department</ion-label>
+            <ion-select formControlName="department">
+              <ion-select-option>Computer Science</ion-select-option>
+              <ion-select-option>Business Administration</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Course Code</ion-label>
+            <ion-input formControlName="course_code" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Staff No (Optional)</ion-label>
+            <ion-input formControlName="staff_no" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Question</ion-label>
+            <ion-textarea formControlName="question"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label postion="stacked">Deadline Date</ion-label>
+            <ion-datetime formControlName="submission_date" display-format="MMM DD YYYY" picker-format="YY MMM DD" min="{{startDate}}" max="{{endDate}}">
+            </ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="8" offset-sm="2">
+          <ion-button [disabled]= "!credentials.valid" color="primary" (click)= "onSubmit()" expand="block">SUBMIT</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>

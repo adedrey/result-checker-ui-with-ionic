@@ -1,0 +1,9 @@
+<!-- <ion-virtual-scroll [items]="assignments" approxItemHeight="70px"> -->
+  <ion-item *ngFor="let assignment of assignments" [routerLink]="['/forum', 'tabs', 'assignments', assignment._id]"
+    detail>
+    <ion-label>
+      <h2>{{ assignment.course_code }}</h2>
+      <p>Deadline: {{ assignment.submission_date | date }}</p>
+    </ion-label>
+  </ion-item>
+<!-- </ion-virtual-scroll> -->

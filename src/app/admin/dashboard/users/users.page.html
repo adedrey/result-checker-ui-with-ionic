@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>AFIT Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="4" offset-sm="4">
+        <ion-button color="primary" (click)="onAddUser()" expand="block">Register User?</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-label>All Registered Student</ion-label>
+        <app-users-item></app-users-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-label>All Registered Staff</ion-label>
+        <app-staff-item></app-staff-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

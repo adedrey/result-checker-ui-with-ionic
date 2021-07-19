@@ -1,0 +1,26 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let user">{{ user?.userId.surname }} {{ user?.userId.firstname}}</td>
+  </ng-container>
+  <ng-container matColumnDef="matric_no">
+    <th mat-header-cell *matHeaderCellDef>Matric Number</th>
+    <td mat-cell *matCellDef="let user">{{ user?.userId.matric_no }}</td>
+  </ng-container>
+  <ng-container matColumnDef="attachment">
+    <th mat-header-cell *matHeaderCellDef>Attachment</th>
+    <td mat-cell *matCellDef="let user">
+      <a mat-button ng-click="window.open(user?.attachment)">Download</a>
+    </td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButton></mat-paginator>

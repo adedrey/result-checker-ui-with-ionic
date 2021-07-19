@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/forum/tabs/assignments"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="signupForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-text>
+            <ion-label>Matric. No: {{user?.matric_no}}</ion-label>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-text>
+            <ion-label>Email: {{user?.email}}</ion-label>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">New Password</ion-label>
+            <ion-input formControlName="newpassword" type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-button [disabled]="!signupForm.valid" (click) = "onSubmit()" color="primary" expand="block">Save Changes</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

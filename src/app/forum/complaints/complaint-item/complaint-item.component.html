@@ -1,0 +1,9 @@
+<ion-item [routerLink] = "['/forum', 'tabs', 'complaints', complaint._id]" >
+    <ion-label>
+      <h1>{{ complaint.title}}</h1>
+      <div class="complaint-detail">
+        <ion-icon name="calender" class="space-left" color="tertiary"></ion-icon>
+        <ion-text color="primary" class="space-left">{{ complaint.updatedAt | date }}</ion-text>
+      </div>
+    </ion-label>
+  </ion-item>

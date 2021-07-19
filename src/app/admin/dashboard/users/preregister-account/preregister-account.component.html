@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Register Account?</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-text-center ion-padding">
+  <form [formGroup]="registerForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-item>
+            <small *ngIf = "documentName !== '' && documentName && registerForm.get('attachment').valid">
+              {{documentName}}
+            </small>
+            <ion-button color="primary" (click)="filePicker.click()">Select a file</ion-button>
+            <input type="file" #filePicker (change)="onDocumentPicked($event)">
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Account Type</ion-label>
+            <ion-select formControlName="account_type">
+              <ion-select-option>Student</ion-select-option>
+              <ion-select-option>Staff</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-button [disabled] = "!registerForm.valid" (click)="onAddUser()" color="primary" expand="block">Create</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

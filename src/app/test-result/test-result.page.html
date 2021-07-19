@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/undergraduate/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="printResult()">
+        <ion-icon name="print"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Integrated Data Centre</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <div>
+          <div>
+            <h2 class="info">AIR FORCE INSTITUTE OF TECHNOLOGY</h2>
+            <h2 class="info">DEPARTMENT OF {{userData?.department | uppercase}}</h2>
+            <h2 class="info">{{userData?.name | uppercase}}</h2>
+            <h2 class="info">{{userData?.matric_no | uppercase}}</h2>
+          </div>
+          <div class="table-responsive-sm" *ngFor="let result of resultData">
+              <table class="table table-sm table-striped table-sm">
+
+                <thead>
+                  <tr>
+                    <th colspan="2">PROGRAM: {{userData?.department | uppercase}}</th>
+                    <th>ACADEMIC YEAR: {{result?.session}}</th>
+                    <th colspan="2">SEMESTER: {{result?.semester | uppercase}}</th>
+                  </tr>
+                  <tr class="thead-light">
+                    <th>COURSE CODE</th>
+                    <th>COURSE TITLE</th>
+                    <th>UNIT</th>
+                    <th>TYPE</th>
+                    <th>SCORE</th>
+                    <th>DATE</th>
+                  </tr>
+                </thead>
+
+                <tr *ngFor="let semester of result.data">
+                  <th scope="row">{{semester?.course_code}}</th>
+                  <td>{{semester?.title}}</td>
+                  <td>{{semester?.unit}}</td>
+                  <td>{{semester?.result_type}}</td>
+                  <td>{{semester?.result.score}}</td>
+                  <td>{{semester?.result.updatedAt | date}}</td>
+                </tr>
+              </table>
+            <br>
+            <br>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    overflow-x: scroll;
+}
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-cell,
+.mat-header-cell {
+//   word-wrap: initial;
+  display: run-in;
+  padding: 0px 10px;
+  line-break: unset;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.mat-row,
+.mat-header-row {
+  display: table-row;
+}

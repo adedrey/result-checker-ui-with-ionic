@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/staff"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="signupForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-text>
+            <ion-label>Staff Number: {{lecturer?.staff_no}}</ion-label>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-text>
+            <ion-label>Email: {{lecturer?.email}}</ion-label>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Rank</ion-label>
+            <ion-select formControlName="rank">
+              <ion-select-option>Professor</ion-select-option>
+              <ion-select-option>Associate Professor</ion-select-option>
+              <ion-select-option>Doctor</ion-select-option>
+              <ion-select-option>Mr</ion-select-option>
+              <ion-select-option>Mrs</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Department</ion-label>
+            <ion-select formControlName="department">
+              <ion-select-option>Computer Science</ion-select-option>
+              <ion-select-option>Business Administration</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating">New Password</ion-label>
+            <ion-input formControlName="newpassword" type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-button [disabled]="!signupForm.valid" (click) = "onSubmit()" color="primary" expand="block">Save Changes</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

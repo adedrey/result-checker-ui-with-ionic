@@ -1,0 +1,27 @@
+.info {
+    text-align: center;
+    font-weight: bold;
+    padding: 0, 0;
+    margin: 0;
+}
+.result {
+    padding-right: 7em;
+}
+tr.noBorder td {
+    border: 0
+}
+ul
+{
+  display:flex;  
+  list-style:none;
+}
+
+// @media print{
+//     ion-header{ display: none !important; }  
+  
+//     body, .app-root, .split-pane, .ion-page, ion-app, ion-nav { contain: none; }
+//     body, ion-nav{ overflow: initial; }
+//     body{ position: static; }
+  
+//     [ion-content-print]{ overflow-y: visible !important; position: relative; }
+//   }

@@ -1,0 +1,20 @@
+.info-detail {
+    // display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.form-content {
+    margin: 50px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+ion-img.afitlogo {
+    height: 120px;
+    max-height: fit-content;
+    // max-width: fit-content;
+}

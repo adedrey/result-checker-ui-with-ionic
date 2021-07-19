@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Admin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-text color="dark"> All Complaints</ion-text>
+        <app-complaints-getter></app-complaints-getter>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-label>All Registered Student</ion-label>
+        <app-users-item></app-users-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-label>All Registered Staff</ion-label>
+        <app-staff-item></app-staff-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+</ion-content>

@@ -1,0 +1,146 @@
+<ion-app>
+  <ion-menu contentId="my-content" side="start" menuId="first">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>AFIT CORE</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content *ngIf="this.nav === 'user'">
+      <ion-list>
+        <ion-menu-toggle routerLink="/undergraduate/home">
+          <ion-item lines="none" button>
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>AFIT-IDC</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle routerLink="/profile">
+          <ion-item lines="none" button>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>My Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle routerLink="/results">
+          <ion-item lines="none" button>
+            <ion-icon name="school" slot="start"></ion-icon>
+            <ion-label>Check Result</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle routerLink="/test-result">
+          <ion-item lines="none" button>
+            <ion-icon name="school" slot="start"></ion-icon>
+            <ion-label>Test/Assignment Result</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle (click)="onLogoutUser()">
+          <ion-item lines="none" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+    <ion-content *ngIf="this.nav === 'admin'">
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item lines="none" [routerLink]="['/admin', 'complaints']" button>
+            <ion-icon name="book" slot="start"></ion-icon>
+            <ion-label>Complaints</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" [routerLink]="['/admin', 'assignments']" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Assignment</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" [routerLink]="['/admin', 'users']" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Users</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle routerLink="/admin/profile">
+          <ion-item lines="none" button>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>Change Password</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle (click)="onLogoutAdmin()">
+          <ion-item lines="none" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+    <ion-content *ngIf="this.nav === 'staff'">
+      <ion-list>
+        <ion-menu-toggle routerLink="/staff/profile">
+          <ion-item lines="none" button>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>My Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle routerLink="/staff/test-result">
+          <ion-item lines="none" button>
+            <ion-icon name="cloud-upload" slot="start"></ion-icon>
+            <ion-label>Test/Assignment Result</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle routerLink="/staff/result-upload">
+          <ion-item lines="none" button>
+            <ion-icon name="cloud-upload" slot="start"></ion-icon>
+            <ion-label>Upload Result</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle (click)="onLogoutStaff()">
+          <ion-item lines="none" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <!-- <ion-menu contentId="my-content" side="start" menuId="second">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>AFIT ADMIN</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item lines="none" [routerLink]="['/admin', 'complaints']" button>
+            <ion-icon name="book" slot="start"></ion-icon>
+            <ion-label>Complaints</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" [routerLink]="['/admin', 'assignments']" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Assignment</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" [routerLink]="['/admin', 'users']" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Users</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle (click)="onLogoutAdmin()">
+          <ion-item lines="none" button>
+            <ion-icon name="exit" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu> -->
+  <ion-router-outlet id="my-content" main></ion-router-outlet>
+</ion-app>
+
+<!-- <ion-app>
+ 
+  <ion-router-outlet id="my-content2"></ion-router-outlet>
+</ion-app> -->

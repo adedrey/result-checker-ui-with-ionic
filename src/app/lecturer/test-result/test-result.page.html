@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/staff/assignments"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Test Result Upload</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-text-center ion-padding">
+  <form [formGroup]="answerForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Course Code</ion-label>
+            <ion-input type="text" formControlName="course_code"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Result Type</ion-label>
+              <ion-select formControlName= 'result_type'>
+                <ion-select-option value="Test">Test</ion-select-option>
+                <ion-select-option value="Assignment">Assignment</ion-select-option>
+              </ion-select>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Session</ion-label>
+              <ion-select formControlName= 'session'>
+                <ion-select-option value="2019/2020">2019/2020</ion-select-option>
+              </ion-select>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Semester</ion-label>
+              <ion-select formControlName= 'semester'>
+                <ion-select-option value="Rain">Rain</ion-select-option>
+                <ion-select-option value="Harmattan">Harmattan</ion-select-option>
+              </ion-select>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item lines="none">
+            <small *ngIf = "documentName !== '' && documentName && answerForm.get('attachment').valid">
+              {{documentName}}
+            </small>
+            <ion-button color="primary" (click)="filePicker.click()">Pick a Scoresheet</ion-button>
+            <input type="file" #filePicker (change)="onDocumentPicked($event)">
+            <!-- <div class="image-preview" *ngIf = "documentPreview !== '' && documentPreview && answerForm.get('attachment').valid">
+              <img 
+              [src]="documentPreview" 
+              alt="document">
+            </div> -->
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-text>
+              <ion-label>
+                <h4>Note:</h4>
+                <p>Only .csv file is allowed! </p>
+              </ion-label>
+            </ion-text>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button [disabled]="!answerForm.valid" color="primary" (click)="onSubmitResult()" expand="block">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

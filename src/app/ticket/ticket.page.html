@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>AFIT-IDC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="complaintForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input type="text" formControlName="title"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Case Category</ion-label>
+              <ion-select multiple="true" formControlName= 'case_type'>
+                <ion-select-option value="Sexual Harrassment">Sexual Harrassment</ion-select-option>
+                <ion-select-option value="Lecture Lateness">Lecture Lateness</ion-select-option>
+                <ion-select-option value="Robbery">Robbery</ion-select-option>
+                <ion-select-option value="Distance Learning">Distance Learning</ion-select-option>
+                <ion-select-option value="Others">Others</ion-select-option>
+              </ion-select>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Body</ion-label>
+            <ion-textarea row="3" formControlName="body"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button [disabled]= "!complaintForm.valid" expand="block"  (click) = "onCreateComplaint()" color="primary">OPEN TICKET</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>

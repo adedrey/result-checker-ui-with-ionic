@@ -27,6 +27,7 @@ export class LecturerProfilePage implements OnInit {
           .subscribe(responseData => {
             loadingEl.dismiss();
             this.lecturer = responseData.lecturer;
+            console.log(responseData.lecturer)
             this.signupForm.setValue({
               name: this.lecturer.name,
               rank: this.lecturer.rank,
@@ -43,7 +44,7 @@ export class LecturerProfilePage implements OnInit {
       'name': new FormControl(null, [Validators.required]),
       'rank': new FormControl(null, [Validators.required]),
       'department': new FormControl(null, [Validators.required]),
-      'password': new FormControl(null),
+      'password': new FormControl(null, [Validators.minLength(8)]),
       'newpassword': new FormControl(null, [Validators.minLength(8)]),
     });
   }
@@ -57,7 +58,7 @@ export class LecturerProfilePage implements OnInit {
     const department = this.signupForm.value.department;
     const password = this.signupForm.value.password;
     const newpassword = this.signupForm.value.newpassword;
-    if ((newpassword !== null && password == null) || (password !== null && newpassword == null)) {
+    if (newpassword !== null && password === null) {
       return this.alertCtrl.create({
         header: "Error",
         message: 'Please fill the password field.',

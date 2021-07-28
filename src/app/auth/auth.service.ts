@@ -62,18 +62,18 @@ export class AuthService {
     }
 
     login(user: Auth) {
-        return this.http.post<{ token: any, expiresIn: number, name: string, image: string }>(BACKEND_URL + 'login', user)
+        return this.http.post<{ success: boolean, user: User, token: any, expiresIn: any }>(BACKEND_URL + 'login', user)
         .pipe(tap(responseData => this.onHandleAuthentication(responseData)));
     }
-    private onHandleAuthentication(responseData: { token: any, expiresIn: number, name: string, image: string }) {
+    private onHandleAuthentication(responseData: { success: boolean, user: User, token: any, expiresIn: any }) {
         const token = responseData.token;
         if (token) {
             this.token = token;
-            const expiresIn = responseData.expiresIn;
-            const name = responseData.name;
-            const image = responseData.image;
-            this.username = responseData.name;
-            this.userimage = responseData.image;
+            const expiresIn = parseInt(responseData.expiresIn) * 24 * 60 * 60;
+            const name = responseData.user.name;
+            const image = responseData.user.image;
+            this.username = responseData.user.name;
+            this.userimage = responseData.user.image;
             this.setTimer(expiresIn);
             this.isAuthenticated = true;
             this.authStatusListener.next(true);

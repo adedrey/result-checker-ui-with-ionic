@@ -57,14 +57,14 @@ export class StaffAuthService {
             staff_no: staff_no,
             password: password
         }
-        return this.http.post<{ token: string, expiresIn: string }>(BACKEND_URL + 'staff/login', postData)
+        return this.http.post<{ success: boolean, user: Lecturer, token: any, expiresIn: any }>(BACKEND_URL + 'staff/login', postData)
         .pipe(tap(responseData => this.onHandleAuthentication(responseData)));
     }
-    private onHandleAuthentication(responseData: { token: any, expiresIn: string }) {
+    private onHandleAuthentication(responseData: { success: boolean, user: Lecturer, token: any, expiresIn: any }) {
         const token = responseData.token;
         if (token) {
             this.token = token;
-            const expiresIn = responseData.expiresIn;
+            const expiresIn = parseInt(responseData.expiresIn) * 24 * 60 * 60;
             this.isAuthenticated = true;
             this.getAuthStatusListener.next(true);
             this.setTokenTimer(expiresIn);
@@ -126,13 +126,13 @@ export class StaffAuthService {
     }
 
     private saveAuthData(token: string, expiresIn: Date) {
-        localStorage.setItem('staffToken', token);
-        localStorage.setItem('staffExpiresIn', expiresIn.toISOString());
+        localStorage.setItem('token', token);
+        localStorage.setItem('expiresIn', expiresIn.toISOString());
     }
 
     private getAuthData() {
-        const token = localStorage.getItem('staffToken');
-        const expiresInDuration = localStorage.getItem('staffExpiresIn');
+        const token = localStorage.getItem('token');
+        const expiresInDuration = localStorage.getItem('expiresIn');
         if (!token || !expiresInDuration) {
             return;
         }
@@ -143,8 +143,8 @@ export class StaffAuthService {
     }
 
     private clearAuthData() {
-        localStorage.removeItem('staffToken');
-        localStorage.removeItem('staffExpiresIn');
+        localStorage.removeItem('token');
+        localStorage.removeItem('expiresIn');
     }
 
     getProfile() {

@@ -22,12 +22,12 @@ export class AdminAuthService {
       username: username,
       password: password
     }
-    this.http.post<{ token: string, expiresIn: string }>(BACKEND_URL + 'admin/login', postData)
+    this.http.post<{ success: boolean, token: string, expiresIn: string }>(BACKEND_URL + 'admin/login', postData)
       .subscribe(responseData => {
         const token = responseData.token;
         if (token) {
           this.token = token;
-          const expiresIn = responseData.expiresIn;
+          const expiresIn = parseInt(responseData.expiresIn) * 24 * 60 * 60;
           this.isAuthenticated = true;
           this.getAuthStatusListener.next(true);
           this.setTokenTimer(expiresIn);
@@ -83,13 +83,13 @@ export class AdminAuthService {
   }
 
   private saveAuthData(token: string, expiresIn: Date) {
-    localStorage.setItem('adminToken', token);
-    localStorage.setItem('adminExpiresIn', expiresIn.toISOString());
+    localStorage.setItem('token', token);
+    localStorage.setItem('expiresIn', expiresIn.toISOString());
   }
 
   private getAuthData() {
-    const token = localStorage.getItem('adminToken');
-    const expiresInDuration = localStorage.getItem('adminExpiresIn');
+    const token = localStorage.getItem('token');
+    const expiresInDuration = localStorage.getItem('expiresIn');
     if (!token || !expiresInDuration) {
       return;
     }
@@ -100,8 +100,8 @@ export class AdminAuthService {
   }
 
   private clearAuthData() {
-    localStorage.removeItem('adminToken');
-    localStorage.removeItem('adminExpiresIn');
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiresIn');
   }
   changeProfile (password : string, newpassword : string) {
     const postData = {

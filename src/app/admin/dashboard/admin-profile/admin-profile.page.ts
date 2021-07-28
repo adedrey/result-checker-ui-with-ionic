@@ -33,6 +33,15 @@ export class AdminProfilePage implements OnInit {
     }
     const password = this.signupForm.value.password;
     const newpassword = this.signupForm.value.newpassword;
+    if (newpassword !== null && password === null) {
+      return this.alertCtrl.create({
+        header: "Error",
+        message: 'Please fill the password field.',
+        buttons: ['Dismiss']
+      }).then(alertEl => {
+        alertEl.present();
+      });
+    }
     this.alertCtrl.create({
       header: "Confirm!",
       message: "Do you want to continue?",

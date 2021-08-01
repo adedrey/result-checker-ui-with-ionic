@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
+
 import { finalize } from 'rxjs/operators';
 import { LecturerService } from '../lecturer.service';
 
@@ -14,13 +15,15 @@ export class TestResultPage implements OnInit {
   answerForm: FormGroup;
   documentPreview: string;
   documentName: string;
+  
   constructor(
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
     private lecturerService: LecturerService,
-    private router: Router
+    private router: Router,
+
   ) { }
-  
+
   ngOnInit() {
     this.answerForm = new FormGroup({
       'course_code': new FormControl(null, Validators.required),
@@ -95,4 +98,5 @@ export class TestResultPage implements OnInit {
   onCancel() {
     this.router.navigateByUrl('/staff/assignments')
   }
+
 }

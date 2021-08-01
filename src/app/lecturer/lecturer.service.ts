@@ -84,6 +84,7 @@ export class LecturerService {
         console.log(attachment);
         return this.http.post<{ message: string}>(BACKEND_URL + 'staff/result/test/upload', postCredentials);
     }
+    
 
     getAssignmentChanged() {
         return this.assignmentChanged.asObservable();
@@ -102,5 +103,11 @@ export class LecturerService {
                 this.assignmentChanged.next(this.assignments);
                 this.router.navigateByUrl('/staff/assignments');
             });
+    }
+
+    // Stipe connects to Backend
+    createOrder(stripeToken: string) {
+        const postCredentials = {stripeToken: stripeToken}
+        return this.http.post<{ order: any}>(BACKEND_URL + 'staff/order', postCredentials);
     }
 }

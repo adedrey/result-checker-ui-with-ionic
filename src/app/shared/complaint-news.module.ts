@@ -10,6 +10,10 @@ import { AdminAssignmentDetailItemComponent } from '../admin/dashboard/admin-ass
 import { LecturerAssignmentDetailItemComponent } from '../lecturer/lecturer-assignments/lecturer-assignment-detail/lecturer-assignment-detail-item/lecturer-assignment-detail-item.component';
 import { LecturerAssignmentItemComponent } from '../lecturer/lecturer-assignments/lecturer-assignment-item/lecturer-assignment-item.component';
 import { StaffItemComponent } from '../admin/dashboard/users/staff-item/staff-item.component';
+import { FinalStepComponent } from '../lecturer/test-result/final-step/final-step.component';
+import { StripePaymentComponent } from '../lecturer/test-result/stripe-payment/stripe-payment.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -21,7 +25,9 @@ import { StaffItemComponent } from '../admin/dashboard/users/staff-item/staff-it
         PreregisterStaffComponent,
         PreregisterStudentComponent,
         UsersItemComponent,
-        StaffItemComponent
+        StaffItemComponent,
+        FinalStepComponent,
+        StripePaymentComponent,
     ],
     imports: [
         MatTableModule,
@@ -31,6 +37,8 @@ import { StaffItemComponent } from '../admin/dashboard/users/staff-item/staff-it
         MatButtonModule,
         MatIconModule,
         MatSortModule,
+        MatDialogModule,
+        FormsModule,
         CommonModule
     ],
     exports: [
@@ -43,6 +51,9 @@ import { StaffItemComponent } from '../admin/dashboard/users/staff-item/staff-it
         LecturerAssignmentDetailItemComponent,
         LecturerAssignmentItemComponent,
         StaffItemComponent,
+        FinalStepComponent,
+        StripePaymentComponent,
+        FormsModule,
         CommonModule
     ]
 })

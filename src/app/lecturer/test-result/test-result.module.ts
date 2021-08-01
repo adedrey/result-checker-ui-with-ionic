@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TestResultPageRoutingModule } from './test-result-routing.module';
 
 import { TestResultPage } from './test-result.page';
+import { ComplaintNewsModule } from 'src/app/shared/complaint-news.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { TestResultPage } from './test-result.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    TestResultPageRoutingModule
+    TestResultPageRoutingModule,
+    ComplaintNewsModule
   ],
   declarations: [TestResultPage]
 })
